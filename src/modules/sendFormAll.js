@@ -9,7 +9,7 @@ const sendFormAll = () => {
 
     const statusMessage = document.createElement('div');
     const preloader = document.createElement('img');
-    preloader.src = "./images/preloader.svg";
+    preloader.src = "./images/three-dots.svg";
     statusMessage.append(preloader);
     statusMessage.style.cssText = 'font-size: 2rem; color: white;';
 
