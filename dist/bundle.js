@@ -201,10 +201,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_togglePopup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/togglePopup */ "./src/modules/togglePopup.js");
 /* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/tabs */ "./src/modules/tabs.js");
 /* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/slider */ "./src/modules/slider.js");
-/* harmony import */ var _modules_changePic__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/changePic */ "./src/modules/changePic.js");
-/* harmony import */ var _modules_fieldsValidation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/fieldsValidation */ "./src/modules/fieldsValidation.js");
-/* harmony import */ var _modules_calc__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/calc */ "./src/modules/calc.js");
-/* harmony import */ var _modules_sendFormAll__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/sendFormAll */ "./src/modules/sendFormAll.js");
+/* harmony import */ var _modules_sliderCarousel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/sliderCarousel */ "./src/modules/sliderCarousel.js");
+/* harmony import */ var _modules_changePic__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/changePic */ "./src/modules/changePic.js");
+/* harmony import */ var _modules_fieldsValidation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/fieldsValidation */ "./src/modules/fieldsValidation.js");
+/* harmony import */ var _modules_calc__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/calc */ "./src/modules/calc.js");
+/* harmony import */ var _modules_sendFormAll__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/sendFormAll */ "./src/modules/sendFormAll.js");
+
 
 
 
@@ -223,15 +225,17 @@ __webpack_require__.r(__webpack_exports__);
 
 (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_3__["default"])(); // Слайдер
 
-(0,_modules_slider__WEBPACK_IMPORTED_MODULE_4__["default"])(); // Смена фото
+(0,_modules_slider__WEBPACK_IMPORTED_MODULE_4__["default"])(); //Слайдер карусель
 
-(0,_modules_changePic__WEBPACK_IMPORTED_MODULE_5__["default"])(); // Валидация полей ввода
+(0,_modules_sliderCarousel__WEBPACK_IMPORTED_MODULE_5__["default"])(); // Смена фото
 
-(0,_modules_fieldsValidation__WEBPACK_IMPORTED_MODULE_6__["default"])(); // Калькулятор
+(0,_modules_changePic__WEBPACK_IMPORTED_MODULE_6__["default"])(); // Валидация полей ввода
 
-(0,_modules_calc__WEBPACK_IMPORTED_MODULE_7__["default"])(); // Ajax запрос
+(0,_modules_fieldsValidation__WEBPACK_IMPORTED_MODULE_7__["default"])(); // Калькулятор
 
-(0,_modules_sendFormAll__WEBPACK_IMPORTED_MODULE_8__["default"])();
+(0,_modules_calc__WEBPACK_IMPORTED_MODULE_8__["default"])(); // Ajax запрос
+
+(0,_modules_sendFormAll__WEBPACK_IMPORTED_MODULE_9__["default"])();
 
 /***/ }),
 
@@ -792,6 +796,171 @@ var slider = function slider() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (slider);
+
+/***/ }),
+
+/***/ "./src/modules/sliderCarousel.js":
+/*!***************************************!*\
+  !*** ./src/modules/sliderCarousel.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var _this = undefined;
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var sliderCarousel = function sliderCarousel() {
+  var main = document.querySelector('.companies-wrapper'),
+      wrap = document.querySelector('.companies-hor'),
+      slides = document.querySelector('.companies-hor').children;
+  var slidesToShow = 4,
+      options = {
+    position: 0,
+    infinity: true,
+    widthSlide: Math.floor(100 / slidesToShow)
+  },
+      responsive = [{
+    breakpoint: 1024,
+    slidesToShow: 3
+  }, {
+    breakpoint: 768,
+    slidesToShow: 2
+  }, {
+    breakpoint: 576,
+    slidesToShow: 1
+  }];
+  var prev, next;
+
+  var init = function init() {
+    responseInit();
+    addGloClass();
+    addStyle();
+    addArrow();
+    controlSlider();
+  };
+
+  var addGloClass = function addGloClass() {
+    main.classList.add('glo-slider');
+    wrap.classList.add('glo-slider__wrap');
+
+    var _iterator = _createForOfIteratorHelper(slides),
+        _step;
+
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var item = _step.value;
+        item.classList.add('glo-slider__item');
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+  };
+
+  var addStyle = function addStyle() {
+    var style = document.getElementById('sliderCarusel-style');
+
+    if (!style) {
+      style = document.createElement('style');
+      style.id = 'sliderCarusel-style';
+    }
+
+    style.textContent = "\n        .glo-slider{\n            overflow:hidden !important;\n\n        }\n        .glo-slider__wrap{\n            display:flex !important;\n            transition:transform 0.5s !important;\n            will-change:transform !important;\n        }\n        .glo-slider__item{\n            display:flex !important;\n            align-items:center;\n            justify-content:center;\n            flex: 0 0 ".concat(options.widthSlide, "% !important; \n            margin: auto 0 !important; \n        }\n        ");
+    document.head.appendChild(style);
+  };
+
+  var controlSlider = function controlSlider() {
+    prev.addEventListener('click', prevSlider.bind(_this));
+    next.addEventListener('click', nextSlider.bind(_this));
+  };
+
+  var prevSlider = function prevSlider() {
+    if (options.infinity || options.position > 0) {
+      --options.position;
+
+      if (options.position < 0) {
+        options.position = slides.length - slidesToShow;
+      }
+
+      wrap.style.transform = "translateX(-".concat(options.position * options.widthSlide, "%)");
+    }
+  };
+
+  var nextSlider = function nextSlider() {
+    if (options.infinity || options.position < slides.length - slidesToShow) {
+      ++options.position;
+
+      if (options.position > slides.length - slidesToShow) {
+        options.position = 0;
+      }
+
+      wrap.style.transform = "translateX(-".concat(options.position * options.widthSlide, "%)");
+    }
+  };
+
+  var addArrow = function addArrow() {
+    prev = document.createElement('button');
+    next = document.createElement('button');
+    prev.className = 'glo-slider__prev';
+    next.className = 'glo-slider__next';
+    main.appendChild(prev);
+    main.appendChild(next);
+    var style = document.createElement('style');
+    style.textContent = "\n        .glo-slider__prev,\n        .glo-slider__next{\n            margin: 0 10px;\n            border:20px solid transparent;\n            background: transparent;\n        }\n\n        .glo-slider__next{\n            border-left-color:#19b5fe\n        }\n\n        .glo-slider__prev{\n            border-right-color:#19b5fe\n        }\n        .glo-slider__prev:hover,\n        .glo-slider__next:hover,\n        .glo-slider__prev:focus,\n        .glo-slider__next:focus{\n            background: transparent;\n            outline:transparent;\n        } \n        ";
+    document.head.appendChild(style);
+  };
+
+  var responseInit = function responseInit() {
+    var slidesToShowDefault = slidesToShow;
+    var allRespone = responsive.map(function (item) {
+      return item.breakpoint;
+    });
+    var maxResponse = Math.max.apply(Math, _toConsumableArray(allRespone));
+
+    var checkResponse = function checkResponse() {
+      var widthWindow = document.documentElement.clientWidth;
+
+      if (widthWindow < maxResponse) {
+        for (var i = 0; i < allRespone.length; i++) {
+          if (widthWindow < allRespone[i]) {
+            slidesToShow = responsive[i].slidesToShow;
+            options.widthSlide = Math.floor(100 / slidesToShow);
+            addStyle();
+          }
+        }
+      } else {
+        slidesToShow = slidesToShowDefault;
+        options.widthSlide = Math.floor(100 / slidesToShow);
+        addStyle();
+      }
+    };
+
+    checkResponse();
+    window.addEventListener('resize', checkResponse);
+  };
+
+  init();
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sliderCarousel);
 
 /***/ }),
 
@@ -3256,14 +3425,14 @@ var WebSocketClient = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=0.0.0.0&port=8081&pathname=%2Fws&logging=info":
+/***/ "./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=0.0.0.0&port=8080&pathname=%2Fws&logging=info":
 /*!*******************************************************************************************************************************!*\
-  !*** ./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=0.0.0.0&port=8081&pathname=%2Fws&logging=info ***!
+  !*** ./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=0.0.0.0&port=8080&pathname=%2Fws&logging=info ***!
   \*******************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-var __resourceQuery = "?protocol=ws%3A&hostname=0.0.0.0&port=8081&pathname=%2Fws&logging=info";
+var __resourceQuery = "?protocol=ws%3A&hostname=0.0.0.0&port=8080&pathname=%2Fws&logging=info";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var webpack_hot_log_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! webpack/hot/log.js */ "./node_modules/webpack/hot/log.js");
 /* harmony import */ var webpack_hot_log_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(webpack_hot_log_js__WEBPACK_IMPORTED_MODULE_0__);
@@ -5222,7 +5391,7 @@ module.exports.formatError = function (err) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("b3b4c638bc41fce7019e")
+/******/ 		__webpack_require__.h = () => ("4a5c83cfb3c83c6bee05")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
@@ -6225,7 +6394,7 @@ module.exports.formatError = function (err) {
 /******/ 	// module cache are used so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	__webpack_require__("./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=0.0.0.0&port=8081&pathname=%2Fws&logging=info");
+/******/ 	__webpack_require__("./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=0.0.0.0&port=8080&pathname=%2Fws&logging=info");
 /******/ 	__webpack_require__("./node_modules/webpack/hot/dev-server.js");
 /******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
 /******/ 	
